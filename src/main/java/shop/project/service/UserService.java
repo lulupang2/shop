@@ -20,21 +20,21 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
-    public Long save(UserDTO userDTO) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        userDTO.setPassword(encoder.encode(userDTO.getPassword()));
-
-        return userRepository.save(Users.builder().
-                username(userDTO.getUsername()).
-                password(userDTO.getPassword()).
-                useremail(userDTO.getUseremail()).
-                usernick(userDTO.getUsernick()).
-                role(userDTO.getRole()).
-                addr1(userDTO.getAddr1()).
-                addr2(userDTO.getAddr2()).
-                addr3(userDTO.getAddr3()).
-                build()).getId();
-    }
+//    public Long save(UserDTO userDTO) {
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//        userDTO.setPassword(encoder.encode(userDTO.getPassword()));
+//
+//        return userRepository.save(Users.builder().
+//                username(userDTO.getUsername()).
+//                password(userDTO.getPassword()).
+//                useremail(userDTO.getUseremail()).
+//                usernick(userDTO.getUsernick()).
+//                role(userDTO.getRole()).
+//                addr1(userDTO.getAddr1()).
+//                addr2(userDTO.getAddr2()).
+//                addr3(userDTO.getAddr3()).
+//                build()).getId();
+//    }
 
     @Override
     public Users loadUserByUsername(String username) throws UsernameNotFoundException {
